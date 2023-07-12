@@ -14,7 +14,8 @@ Develop a solution using ASP.NET Core to help the San Francisco team find food t
 * Database technology is open to choose, but it is not required.
 
 ### Additional Information:
-* San Francisco's food truck open dataset: [dataset_link]
-* CSV dump of the latest data: [csv_dump_link]
+* San Francisco's food truck open dataset: [dataset_link](https://data.sfgov.org/Economy-and-Community/Mobile-Food-Facility-Permit/rqzj-sfat/data)
+* CSV dump of the latest data: [csv_dump_link](./Mobile_Food_Facility_Permit.csv)
 * A copy of the CSV data is also included in this repository.
 * The solution should be read-only and not require any updates.
+
