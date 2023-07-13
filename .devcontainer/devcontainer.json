@@ -7,7 +7,17 @@
     "features": {
         "ghcr.io/devcontainers/features/azure-cli:1": {},
         "ghcr.io/devcontainers/features/powershell:1": {}
-    }
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-dotnettools.csharp",
+				"ms-vscode.azurecli",
+				"ms-dotnettools.csdevkit",
+				"hediet.vscode-drawio"
+			]
+		}
+	}
 
     // Features to add to the dev container. More info: https://containers.dev/features.
     // "features": {},
