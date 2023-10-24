@@ -4,7 +4,7 @@
 
 ### Description:
 
-Develop a solution using ASP.NET Core to help the San Francisco team find food trucks near their location and based on their preferred food. The solution can be a web API, web frontend, CLI tool, or any other method that returns at least 5 food truck options based on latitude, longitude, and preferred food.
+Develop a solution using ASP.NET Core to help the San Francisco team find food trucks near their location and based on their preferred food. The solution should be a Web AP that returns at least 5 food truck options based on latitude, longitude, and preferred food.
 
 ### Acceptance Criteria:
 * The solution should accept input for latitude, longitude, and preferred food.
