@@ -4,14 +4,14 @@
 
 ### Description:
 
-Develop a solution using ASP.NET Core to help the San Francisco team find food trucks near their location and based on their preferred food. The solution should be a Web API that returns at least 5 food truck options based on latitude, longitude, and preferred food.
+Develop a solution to help the San Francisco team find food trucks near their location and based on their preferred food. The solution should return at least the closest food trucks options based on latitude, longitude, and preferred food.
 
 ### Acceptance Criteria:
-* The solution should accept input for latitude, longitude, and preferred food.
-* The solution should return at least 5 food truck options near the given location and based on the preferred food.
+* The solution should accept input for latitude, longitude, amount of results, and preferred food.
+* The solution should return a configurable amount of food truck options near the given location and based on the preferred food ordered by distance.
 * The food truck data should be sourced from the San Francisco's open dataset.
-* The solution should be implemented using ASP.NET Core.
-* Database technology is open to choose, but it is not required.
+* The solution should be implemented using ASP.NET Core. However an alternative can be used if required.
+* Database technology is open to choose, but it is not required for this POC.
 
 ### Additional Information:
 * San Francisco's food truck open dataset: [dataset_link](https://data.sfgov.org/Economy-and-Community/Mobile-Food-Facility-Permit/rqzj-sfat/data)
