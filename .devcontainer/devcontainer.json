@@ -13,7 +13,6 @@
 			"extensions": [
 				"ms-dotnettools.csharp",
 				"ms-vscode.azurecli",
-				"ms-dotnettools.csdevkit",
 				"hediet.vscode-drawio"
 			]
 		}
