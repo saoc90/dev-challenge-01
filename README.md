@@ -10,12 +10,10 @@ Develop a solution to help the San Francisco team find food trucks near their lo
 * The solution should accept input for latitude, longitude, amount of results, and preferred food.
 * The solution should return a configurable amount of food truck options near the given location and based on the preferred food ordered by distance.
 * The food truck data should be sourced from the San Francisco's open dataset.
-* The solution should be implemented using ASP.NET Core. However an alternative can be used if required.
+* The solution should be implemented using ASP.NET Core.
 * Database technology is open to choose, but it is not required for this POC.
 
 ### Additional Information:
-* San Francisco's food truck open dataset: [dataset_link](https://data.sfgov.org/Economy-and-Community/Mobile-Food-Facility-Permit/rqzj-sfat/data)
-* CSV dump of the latest data: [csv_dump_link](./Mobile_Food_Facility_Permit.csv)
-* A copy of the CSV data is also included in this repository.
+* San Francisco's food truck open dataset CSV dump of the latest data: [csv_dump_link](./Mobile_Food_Facility_Permit.csv)
 * The solution should be read-only and not require any updates.
 
