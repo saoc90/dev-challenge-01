@@ -43,3 +43,10 @@ performance of the search service. Run the benchmarks with:
 ```bash
 dotnet run -c Release --project FoodTruckFinder.Benchmarks
 ```
+
+## Running the Web UI
+
+1. Install Node.js (18+) and npm.
+2. From the `web` directory run `npm install`.
+3. Start the dev server with `npm run dev` and open the provided local URL.
+4. Ensure the API is running on the same host so the UI can call `/api/foodtrucks`.
