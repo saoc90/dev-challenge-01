@@ -15,6 +15,9 @@ public class FoodTruckService
     private static readonly Dictionary<string, string[]> _synonyms = new()
     {
         ["hotdog"] = new[] { "hotdog", "hotdogs", "hot dog", "hot dogs", "frankfurter", "wiener", "sausage" },
+        ["frankfurter"] = new[] { "hotdog" },
+        ["wiener"] = new[] { "hotdog" },
+        ["sausage"] = new[] { "hotdog" },
         ["taco"] = new[] { "taco", "tacos" },
         ["burrito"] = new[] { "burrito", "burritos" },
         ["noodle"] = new[] { "noodle", "noodles", "ramen" }
@@ -36,6 +39,8 @@ public class FoodTruckService
         };
         using var reader = new StreamReader(path);
         using var csv = new CsvReader(reader, config);
+        csv.Read();
+        csv.ReadHeader();
         var records = new List<FoodTruck>();
         while (csv.Read())
         {
@@ -132,8 +137,14 @@ public class FoodTruckService
             var words = phrase.Split(' ', StringSplitOptions.RemoveEmptyEntries);
             var joined = string.Concat(words);
             result.Add(NormalizeTerm(joined));
-            foreach (var w in words)
-                result.Add(NormalizeTerm(w));
+            for (int i = 0; i < words.Length; i++)
+            {
+                result.Add(NormalizeTerm(words[i]));
+                if (i < words.Length - 1)
+                {
+                    result.Add(NormalizeTerm(words[i] + words[i + 1]));
+                }
+            }
         }
         return result.Where(t => t.Length > 0).ToList();
     }

@@ -48,8 +48,9 @@ public class FoodTruckServiceTests
         public string ApplicationName { get; set; } = "FoodTruckFinder.Api";
         public string WebRootPath { get; set; } = string.Empty;
         public IFileProvider WebRootFileProvider { get; set; } = new NullFileProvider();
-        public string ContentRootPath { get; set; } = Directory.GetCurrentDirectory();
-        public IFileProvider ContentRootFileProvider { get; set; } = new PhysicalFileProvider(Directory.GetCurrentDirectory());
+        private static readonly string Root = Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), "..", "..", "..", "..", "FoodTruckFinder.Api"));
+        public string ContentRootPath { get; set; } = Root;
+        public IFileProvider ContentRootFileProvider { get; set; } = new PhysicalFileProvider(Root);
     }
 }
 
