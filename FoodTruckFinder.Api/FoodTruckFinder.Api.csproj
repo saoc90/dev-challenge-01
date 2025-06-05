@@ -7,4 +7,9 @@
   <ItemGroup>
     <PackageReference Include="CsvHelper" Version="30.0.1" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Mobile_Food_Facility_Permit.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>

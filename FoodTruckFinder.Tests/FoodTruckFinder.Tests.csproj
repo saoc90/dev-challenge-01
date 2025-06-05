@@ -22,4 +22,10 @@
     <ProjectReference Include="../FoodTruckFinder.Api/FoodTruckFinder.Api.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="..\Mobile_Food_Facility_Permit.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

@@ -11,6 +11,7 @@ public class FoodTruckService
 {
     private readonly List<FoodTruck> _trucks;
     private readonly Dictionary<string, List<FoodTruck>> _termIndex = new();
+    private readonly Dictionary<char, List<string>> _termBuckets = new();
     private readonly Dictionary<string, double> _idf = new();
     private static readonly Dictionary<string, string[]> _synonyms = new()
     {
@@ -26,6 +27,10 @@ public class FoodTruckService
     public FoodTruckService(IWebHostEnvironment env)
     {
         var filePath = Path.Combine(env.ContentRootPath, "..", "Mobile_Food_Facility_Permit.csv");
+        if (!File.Exists(filePath))
+            filePath = Path.Combine(env.ContentRootPath, "Mobile_Food_Facility_Permit.csv");
+        if (!File.Exists(filePath))
+            filePath = Path.Combine(AppContext.BaseDirectory, "Mobile_Food_Facility_Permit.csv");
         _trucks = LoadFoodTrucks(filePath);
         BuildIndex();
     }
@@ -69,6 +74,13 @@ public class FoodTruckService
                 {
                     list = new List<FoodTruck>();
                     _termIndex[term] = list;
+                    var key = term[0];
+                    if (!_termBuckets.TryGetValue(key, out var bucket))
+                    {
+                        bucket = new List<string>();
+                        _termBuckets[key] = bucket;
+                    }
+                    bucket.Add(term);
                 }
                 list.Add(truck);
             }
@@ -98,10 +110,13 @@ public class FoodTruckService
                     candidates.UnionWith(list);
                 else
                 {
-                    foreach (var key in _termIndex.Keys)
+                    if (_termBuckets.TryGetValue(qt[0], out var bucket))
                     {
-                        if (LevenshteinDistance(key, qt) <= 2)
-                            candidates.UnionWith(_termIndex[key]);
+                        foreach (var key in bucket)
+                        {
+                            if (Math.Abs(key.Length - qt.Length) <= 2 && LevenshteinDistance(key, qt) <= 2)
+                                candidates.UnionWith(_termIndex[key]);
+                        }
                     }
                 }
             }
