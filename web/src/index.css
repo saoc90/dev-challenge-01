@@ -3,5 +3,8 @@
 @tailwind utilities;
 
 body {
-  @apply bg-gradient-to-br from-purple-700 via-pink-500 to-red-500 min-h-screen text-white;
+  /* Custom Gradient, da Tailwind v4 keine from-*, via-*, to-* mehr bietet */
+  background-image: linear-gradient(to bottom right, #7e22ce, #ec4899, #ef4444);
+  min-height: 100vh;
+  color: white;
 }
