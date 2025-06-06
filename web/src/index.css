@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  /* Custom Gradient, da Tailwind v4 keine from-*, via-*, to-* mehr bietet */
+  background-image: linear-gradient(to bottom right, #7e22ce, #ec4899, #ef4444);
+  min-height: 100vh;
+  color: white;
+}

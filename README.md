@@ -17,3 +17,36 @@ Develop a solution to help the San Francisco team find food trucks near their lo
 * San Francisco's food truck open dataset CSV dump of the latest data: [csv_dump_link](./Mobile_Food_Facility_Permit.csv)
 * The solution should be read-only and not require any updates.
 
+
+## Running the API
+
+1. Ensure you have the .NET 9 SDK installed.
+2. From the repository root, run `dotnet run --project FoodTruckFinder.Api`.
+3. Call `/api/foodtrucks` with `latitude`, `longitude`, `count`, and `preferred` query parameters.
+   The service performs basic stemming and synonym matching and also uses a
+   Levenshtein distance check to handle minor misspellings.
+
+Example:
+```
+GET https://localhost:5001/api/foodtrucks?latitude=37.7749&longitude=-122.4194&count=5&preferred=tacos
+```
+
+## Running Tests
+
+Execute `dotnet test` to run the xUnit tests included in the solution.
+
+## Benchmarking
+
+The `FoodTruckFinder.Benchmarks` project uses BenchmarkDotNet to measure the
+performance of the search service. Run the benchmarks with:
+
+```bash
+dotnet run -c Release --project FoodTruckFinder.Benchmarks
+```
+
+## Running the Web UI
+
+1. Install Node.js (18+) and npm.
+2. From the `web` directory run `npm install`.
+3. Start the dev server with `npm run dev` and open the provided local URL.
+4. Ensure the API is running on the same host so the UI can call `/api/foodtrucks`.
